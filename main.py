@@ -2,14 +2,15 @@ import requests
 from bs4 import BeautifulSoup
 from rq import Queue
 from redis import Redis
+from app.rocketchat import RocketChat
 
-from app.queue_emote import save_emote
-
+rocketchat = RocketChat(api_url='', user_id='', auth_token='')
 redis_conn = Redis()
 q = Queue('emotes', connection=redis_conn)
 parsed_emotes_dict = {}
 
-smiley_source = requests.get("https://forums.somethingawful.com/misc.php?action=showsmilies")
+smiley_source = requests.get(
+    "https://forums.somethingawful.com/misc.php?action=showsmilies")
 soup = BeautifulSoup(smiley_source.content, "html.parser")
 
 all_classes_with_emotes = soup.findAll("li", {"class": "smilie"})
@@ -26,11 +27,10 @@ def create_dict_of_emotes(item):
 
 
 def load_into_que(item):
-    for name, meta in item.items():
-        value_command = meta[0]
-        value_url = meta[1]
-        save_emote(name, value_url, value_command)
-        # q.enqueue(save_emote, name, value_url, value_command)
+    for emote_name, meta in item.items():
+        emote_alias = meta[0]
+        emote_url = meta[1]
+        rocketchat.upload_emote(emote_name, emote_url, emote_alias)
 
 
 create_dict_of_emotes(item=list_of_emotes)

@@ -5,6 +5,8 @@ verify_ssl = true
 
 [dev-packages]
 rq-dashboard = "*"
+"autopep8" = "*"
+pylint = "*"
 
 [packages]
 beautifulsoup4 = "*"
