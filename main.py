@@ -27,9 +27,10 @@ def create_dict_of_emotes(item):
 
 def load_into_que(item):
     for name, meta in item.items():
-        value_url = meta[0]
-        value_command = meta[1]
-        q.enqueue(save_emote, name, value_url, value_command)
+        value_command = meta[0]
+        value_url = meta[1]
+        save_emote(name, value_url, value_command)
+        # q.enqueue(save_emote, name, value_url, value_command)
 
 
 create_dict_of_emotes(item=list_of_emotes)
