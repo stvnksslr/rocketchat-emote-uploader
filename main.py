@@ -1,12 +1,16 @@
+import os
+import time
+from dotenv import load_dotenv
+
 import requests
 from bs4 import BeautifulSoup
-from rq import Queue
-from redis import Redis
 from app.rocketchat import RocketChat
 
-rocketchat = RocketChat(api_url='', user_id='', auth_token='')
-redis_conn = Redis()
-q = Queue('emotes', connection=redis_conn)
+load_dotenv()
+
+rocketchat = RocketChat(api_url=os.getenv("API_URL"), user_id=os.getenv("USER_ID"),
+                        auth_token=os.getenv("AUTH_TOKEN"))
+
 parsed_emotes_dict = {}
 
 smiley_source = requests.get(
@@ -30,7 +34,10 @@ def load_into_que(item):
     for emote_name, meta in item.items():
         emote_alias = meta[0]
         emote_url = meta[1]
-        rocketchat.upload_emote(emote_name, emote_url, emote_alias)
+        time.sleep(.5)
+        if len(emote_alias) > 1:
+            emote_alias = emote_alias[1:-1]
+        rocketchat.upload_emote(emote_alias, emote_url, emote_alias)
 
 
 create_dict_of_emotes(item=list_of_emotes)
