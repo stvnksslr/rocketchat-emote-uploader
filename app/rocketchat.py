@@ -38,8 +38,8 @@ class RocketChat():
                 data=emote_data)
 
             if response.status_code == 200:
-                print('created emote: :%s:' % name)
+                print('created emote: :%s:' % emote_name)
             else:
-                print('error creating emote: :%s:' % name)
+                print('error creating emote: :%s:' % emote_name)
         except Exception:
             raise
