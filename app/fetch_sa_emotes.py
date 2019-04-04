@@ -1,5 +1,6 @@
 from requests import get
 from bs4 import BeautifulSoup
+from json import dumps
 
 parsed_emotes_dict = {}
 
@@ -18,3 +19,9 @@ def create_dict_of_emotes(item):
         emote_command = emote[1].text
         emote_meta = [emote_command, emote_url]
         parsed_emotes_dict.update({emote_name: emote_meta})
+
+
+create_dict_of_emotes(item=list_of_emotes)
+emote_json = dumps(parsed_emotes_dict)
+with open("emote_json/sa_emotes.json", "w") as file:
+    file.write(emote_json)

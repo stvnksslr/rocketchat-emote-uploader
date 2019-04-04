@@ -27,7 +27,7 @@ class RocketChat:
                 emote_data['alias'] = emote_alias
 
             emote_image_data = requests.get(emote_url).content
-            
+
             response = requests.post(
                 self.emoji_create_url,
                 headers=self.auth_headers,
@@ -40,5 +40,6 @@ class RocketChat:
                 print('created emote: :%s:' % emote_name)
             else:
                 print('error creating emote: :%s:' % emote_name)
+                print('ERROR: {}'.format(response))
         except Exception:
             raise

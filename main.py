@@ -1,11 +1,9 @@
 import os
 import time
 from dotenv import load_dotenv
-
-import requests
-from bs4 import BeautifulSoup
 from app.rocketchat_uploader import RocketChat
 
+# Loads env file might be a better way of doing this
 load_dotenv()
 
 rocketchat = RocketChat(api_url=os.getenv("API_URL"), user_id=os.getenv("USER_ID"),
