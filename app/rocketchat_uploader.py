@@ -43,3 +43,12 @@ class RocketChat:
                 print('ERROR: {}'.format(response))
         except Exception:
             raise
+
+    @staticmethod
+    def upload_to_rocketchat(item):
+        for emote_name, meta in item.items():
+            emote_alias = meta[0]
+            emote_url = meta[1]
+            if len(emote_alias) > 1:
+                emote_alias = emote_alias[1:-1]
+                RocketChat.upload_emote(emote_alias, emote_url, emote_alias)
