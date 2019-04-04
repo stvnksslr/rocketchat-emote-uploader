@@ -15,7 +15,8 @@ emote scraper and uploader for rocketchat
 
 ##### Format of List
 ```json
-{"emote_name": [
+{
+"emote_name": [
     "command_to_use",
     "url"
   ]
