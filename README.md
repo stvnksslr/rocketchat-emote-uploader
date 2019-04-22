@@ -11,7 +11,7 @@ emote scraper and uploader for rocketchat
 
 #### Usage
 1. pipenv install --dev
-2. python main.py -f <name of file you wish to upload>
+2. python main.py -f "name of file you wish to upload"
 
 #### Format of List
 ```json
