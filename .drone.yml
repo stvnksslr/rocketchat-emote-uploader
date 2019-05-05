@@ -4,7 +4,6 @@ name: default
 steps:
   - name: Lint
     image: python:3.7
-    detach: true
     commands:
       - pip install flake8
       - flake8
@@ -24,6 +23,6 @@ steps:
       - pipenv run ./cc-test-reporter after-build --coverage-input-type coverage.py --exit-code $?
 ---
 kind: signature
-hmac: 3948515587dbdd881a2a8907913c2a1ca9f9b8cec5de53a21e363e7e295d64c6
+hmac: 6dc4cb64a6642a19a8ed3e4a77db87f254669098253fe18c3fef6fe9229e06e4
 
 ...
