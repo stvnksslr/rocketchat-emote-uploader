@@ -4,6 +4,7 @@ name: default
 steps:
   - name: Lint
     image: python:3.7
+    detach: true
     commands:
       - pip install flake8
       - flake8
@@ -21,3 +22,8 @@ steps:
       - pipenv run pytest --cov-report xml --cov=app app
       - pipenv run ./cc-test-reporter before-build
       - pipenv run ./cc-test-reporter after-build --coverage-input-type coverage.py --exit-code $?
+---
+kind: signature
+hmac: 3948515587dbdd881a2a8907913c2a1ca9f9b8cec5de53a21e363e7e295d64c6
+
+...
