@@ -1,3 +1,4 @@
+---
 kind: pipeline
 name: default
 
@@ -23,6 +24,6 @@ steps:
       - pipenv run ./cc-test-reporter after-build --coverage-input-type coverage.py --exit-code $?
 ---
 kind: signature
-hmac: 6dc4cb64a6642a19a8ed3e4a77db87f254669098253fe18c3fef6fe9229e06e4
+hmac: 29bc5c4849000632b3c194d2324e60d36457c679be3b398c1367ecd029a6f8e7
 
 ...
