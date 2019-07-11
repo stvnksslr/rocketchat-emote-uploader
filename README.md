@@ -1,5 +1,5 @@
 # rocketchat-emoji-uploader
-[![Build Status](https://drone.stvnksslr.com/api/badges/stvnksslr/rocketchat-emote-uploader/status.svg)](https://drone.stvnksslr.com/stvnksslr/rocketchat-emote-uploader)
+[![Build Status](https://ci.stvnksslr.com/api/badges/stvnksslr/rocketchat-emote-uploader/status.svg)](https://ci.stvnksslr.com/stvnksslr/rocketchat-emote-uploader)
 [![Maintainability](https://api.codeclimate.com/v1/badges/21ff237d3f752bb8c72c/maintainability)](https://codeclimate.com/github/stvnksslr/rocketchat-emote-uploader/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/21ff237d3f752bb8c72c/test_coverage)](https://codeclimate.com/github/stvnksslr/rocketchat-emote-uploader/test_coverage)
 
